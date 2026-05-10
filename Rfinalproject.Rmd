@@ -1,0 +1,55 @@
+---
+title: "Jack Hughes PSA 10 Price Compared To Sold Date Regressions"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+# Imports needed library
+library(stargazer)
+library(webshot2)
+
+# Importing csvs
+cards <- read.csv("~/GitHub/final-project-yurcichj/df1_output.csv")
+
+expensivecards <- read.csv("~/GitHub/final-project-yurcichj/dfE_output.csv")
+
+#Running regressions (ols, filtered ols, and polynomial regressions)
+ols <- lm(Log.of.Price ~ Sold.After.2.22.26 + Log.of.Shipping + Rating, data = cards)
+
+filteredols <- lm(Log.of.Price ~ US.Seller + Log.of.Shipping + Rating, data = expensivecards)
+
+polynomial <- lm(Log.of.Price ~ poly(Log.of.Shipping, 2) + Rating + Sold.After.2.22.26, data = cards)
+```
+
+```{r table, results='asis'}
+# Creates html file
+html_out <- tempfile(fileext = ".html")
+
+# Creates a regression table with all regressions
+stargazer(
+  ols, filteredols, polynomial,
+  type = "html",
+  title = "Jack Hughes PSA 10 - Regression Results",
+  dep.var.labels = "Log of Price",
+  column.labels = c("OLS (All Cards)", "OLS (Expensive Cards)", "Polynomial"),
+  covariate.labels = c(
+    "poly(Log of Shipping, 2)\u00b9",
+    "poly(Log of Shipping, 2)\u00b2",
+    "Sold After 2/22/26",
+    "Log of Shipping"
+  ),
+  omit = c("Rating", "US.Seller"),
+  omit.labels = c("Rating controlled", "US Seller controlled"),
+  notes = "Data sourced from eBay sold listings via SerpAPI",
+  notes.append = FALSE,
+  star.cutoffs = c(0.1, 0.05, 0.01),
+  out = html_out
+)
+
+# Convert HTML to JPG
+webshot(html_out, "regression_table.jpg", zoom = 2)
+```
