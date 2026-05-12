@@ -31,14 +31,14 @@ html_out <- tempfile(fileext = ".html")
 
 # Creates a regression table with all regressions
 stargazer(
-  ols, filteredols, polynomial,
+  polynomial, filteredols,
   type = "html",
   title = "Jack Hughes PSA 10 - Regression Results",
   dep.var.labels = "Log of Price",
-  column.labels = c("OLS (All Cards)", "OLS (Expensive Cards)", "Polynomial"),
+  column.labels = c("All Cards", "Expensive Cards"),
   covariate.labels = c(
-    "poly(Log of Shipping, 2)\u00b9",
-    "poly(Log of Shipping, 2)\u00b2",
+    "Log of Shipping",
+    "Log of Shipping\u00b2",
     "Sold After 2/22/26",
     "Log of Shipping"
   ),
@@ -46,6 +46,7 @@ stargazer(
   omit.labels = c("Rating controlled", "US Seller controlled"),
   notes = "Data sourced from eBay sold listings via SerpAPI",
   notes.append = FALSE,
+  dep.var.caption = "",
   star.cutoffs = c(0.1, 0.05, 0.01),
   out = html_out
 )
