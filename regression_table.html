@@ -1,0 +1,31 @@
+
+<table style="text-align:center"><caption><strong>Jack Hughes PSA 10 — Regression Results</strong></caption>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"></td><td colspan="3"><em>Dependent variable:</em></td></tr>
+<tr><td></td><td colspan="3" style="border-bottom: 1px solid black"></td></tr>
+<tr><td style="text-align:left"></td><td colspan="3">Log of Price</td></tr>
+<tr><td style="text-align:left"></td><td>OLS (All Cards)</td><td>OLS (Expensive Cards)</td><td>Polynomial</td></tr>
+<tr><td style="text-align:left"></td><td>(1)</td><td>(2)</td><td>(3)</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">poly(Log of Shipping, 2)¹</td><td></td><td></td><td>0.229</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(1.391)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">poly(Log of Shipping, 2)²</td><td></td><td></td><td>1.231</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td>(1.583)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Sold After 2/22/26</td><td>0.387<sup>*</sup></td><td></td><td>0.426<sup>*</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.212)</td><td></td><td>(0.218)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Log of Shipping</td><td>-0.057</td><td>-0.117</td><td></td></tr>
+<tr><td style="text-align:left"></td><td>(0.049)</td><td>(0.261)</td><td></td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td style="text-align:left">Constant</td><td>5.141<sup>***</sup></td><td>6.359<sup>***</sup></td><td>5.035<sup>***</sup></td></tr>
+<tr><td style="text-align:left"></td><td>(0.205)</td><td>(0.453)</td><td>(0.214)</td></tr>
+<tr><td style="text-align:left"></td><td></td><td></td><td></td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Rating controlled</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+<tr><td style="text-align:left">US Seller controlled</td><td>No</td><td>Yes</td><td>No</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left">Observations</td><td>120</td><td>10</td><td>120</td></tr>
+<tr><td style="text-align:left">R<sup>2</sup></td><td>0.032</td><td>0.024</td><td>0.037</td></tr>
+<tr><td style="text-align:left">Adjusted R<sup>2</sup></td><td>0.016</td><td>-0.098</td><td>0.012</td></tr>
+<tr><td style="text-align:left">Residual Std. Error</td><td>0.405 (df = 117)</td><td>0.653 (df = 8)</td><td>0.406 (df = 116)</td></tr>
+<tr><td style="text-align:left">F Statistic</td><td>1.942 (df = 2; 117)</td><td>0.200 (df = 1; 8)</td><td>1.492 (df = 3; 116)</td></tr>
+<tr><td colspan="4" style="border-bottom: 1px solid black"></td></tr><tr><td style="text-align:left"><em>Note:</em></td><td colspan="3" style="text-align:right">Data sourced from eBay sold listings via SerpAPI</td></tr>
+</table>
