@@ -54,3 +54,6 @@ stargazer(
 # Convert HTML to JPG
 webshot(html_out, "regression_table.jpg", zoom = 2)
 ```
+```{r}
+# For my regressions, we can interpret a few things. Firstly, we can see that there is around a 5-6.3% increase in sold card prices after the Olympics depending on the model, verifying my hypothesis. Second, the constants are both statistically significant to the 99th percent, further solidifying my hypothesis. However, even when controlling for US seller and rating, most of the other variables are not statistically significant whatsoever, with only the non-polynomial log of shipping having any statistical significance. R-squared and adjusted R-squared is also very small, but I don't worry about this too much due to my strong statistical significance. Observations vary significantly by model constraints and are less than I desire due to the small time-frame for the research. Overall, I think my findings confirm my hypothesis, that prices of cards increased, albeit slightly, after the "Golden Goal" in 2026.
+```
